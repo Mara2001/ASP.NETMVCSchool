@@ -14,6 +14,9 @@ builder.Services.AddDbContext<SchoolDbContext>(options =>
 // registrace StudentService do DI kontejneru
 builder.Services.AddScoped<StudentService>();
 
+// registrace SubjectsService do DI kontejneru
+builder.Services.AddScoped<SubjectsService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

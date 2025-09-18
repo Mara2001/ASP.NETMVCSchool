@@ -1,0 +1,20 @@
+﻿@using ASP.NETMVCSchool.DTOs
+
+@model IEnumerable<SubjectDTO>
+
+<h4>Subjects Index</h4>
+@foreach (var subject in Model)
+{
+	<div class="border border-1 p-2">
+		<h5>@subject.Name</h5>
+		<p>Id: @subject.Id<p />
+		<a class="btn btn-warning" asp-action="Edit" asp-route-id="@subject.Id">Edit</a>
+		<form method="post">
+			<button type="submit" class="btn btn-danger" asp-action="Delete" asp-route-id="@subject.Id">Delete</button>
+		</form>
+	</div>
+}
+<hr />
+<div>
+	<a class="btn btn-success" asp-action="Create">Create</a>
+</div>
