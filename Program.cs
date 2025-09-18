@@ -1,4 +1,5 @@
 using ASP.NETMVCSchool.Models;
+using ASP.NETMVCSchool.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SchoolDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolDbConnection")));
 
+// registrace StudentService do DI kontejneru
+builder.Services.AddScoped<StudentService>();
 
 var app = builder.Build();
 
