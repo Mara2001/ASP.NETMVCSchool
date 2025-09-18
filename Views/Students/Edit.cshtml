@@ -1,0 +1,24 @@
+﻿@using ASP.NETMVCSchool.DTOs
+
+@model StudentDTO
+
+<div>
+    <h4>Edit student</h4>
+    <form asp-action="Edit">
+        <div class="form-group">
+            <label asp-for="FirstName" class="control-label"></label>
+            <input asp-for="@Model.FirstName" class="form-control" type="text" />
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="control-label"></label>
+            <input asp-for="@Model.LastName" class="form-control" type="text" />
+        </div>
+        <div class="form-group">
+            <label asp-for="DateOfBirth" class="control-label"></label>
+            <input type="date" asp-for="@Model.DateOfBirth" class="form-control" />
+        </div>
+        <div>
+            <input class="btn btn-success" type="submit" value="Update" />
+        </div>
+    </form>
+</div>

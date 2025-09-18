@@ -30,6 +30,25 @@ namespace ASP.NETMVCSchool.Services
             _dbContext.SaveChanges();
         }
 
+        // najde studenta podle Id
+        public StudentDTO? GetStudentById(int id)
+        {
+            var student = _dbContext.Students.Find(id);
+            if (student == null) return null;
+            return modelToDTO(student);
+        }
+
+        // aktualizuje studenta
+        public void UpdateStudent(int id, StudentDTO studentDTO)
+        {
+            var student = _dbContext.Students.Find(id);
+            if (student == null) return;
+            student.FirstName = studentDTO.FirstName;
+            student.LastName = studentDTO.LastName;
+            student.DateOfBirth = studentDTO.DateOfBirth;
+            _dbContext.SaveChanges();
+        }
+
         // transformační metoda z entity na DTO
         private StudentDTO modelToDTO(Student student)
         {

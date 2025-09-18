@@ -30,5 +30,20 @@ namespace ASP.NETMVCSchool.Controllers
             _service.CreateStudent(student);
             return RedirectToAction("Index");          
         }
+        // akce Edit pro zobrazení detailu studenta
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var student = _service.GetStudentById(id);
+            if (student == null) return NotFound();
+            return View(student);
+        }
+        // akce Edit volaná formulářem pro úpravu studenta
+        [HttpPost]
+        public IActionResult Edit(int id, StudentDTO student)
+        {
+            _service.UpdateStudent(id, student);
+            return RedirectToAction("Index");
+        }
     }
 }
