@@ -45,5 +45,17 @@ namespace ASP.NETMVCSchool.Controllers
             _service.UpdateStudent(id, student);
             return RedirectToAction("Index");
         }
+        // akce Delete pro smazání studenta
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var student = _service.GetStudentById(id);
+            if (student == null)
+            {
+                return View("NotFound");
+            }
+            _service.DeleteStudent(id);
+            return RedirectToAction("Index");
+        }
     }
 }

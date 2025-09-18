@@ -49,6 +49,15 @@ namespace ASP.NETMVCSchool.Services
             _dbContext.SaveChanges();
         }
 
+        // smaže studenta
+        public void DeleteStudent(int id)
+        {
+            var student = _dbContext.Students.Find(id);
+            if (student == null) return;
+            _dbContext.Students.Remove(student);
+            _dbContext.SaveChanges();
+        }
+
         // transformační metoda z entity na DTO
         private StudentDTO modelToDTO(Student student)
         {
