@@ -1,0 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace ASP.NETMVCSchool.Models
+{
+    public class SchoolDbContext : DbContext
+    {
+        public SchoolDbContext(DbContextOptions<SchoolDbContext> options) : base(options)
+        {
+        }
+        
+    }
+}
