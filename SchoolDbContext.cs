@@ -1,15 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ASP.NETMVCSchool.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace ASP.NETMVCSchool.Models
+public class SchoolDbContext : DbContext
 {
-    public class SchoolDbContext : DbContext
+    public SchoolDbContext(DbContextOptions<SchoolDbContext> options) : base(options)
     {
-        public SchoolDbContext(DbContextOptions<SchoolDbContext> options) : base(options)
-        {
-        }
-
-        public DbSet<Student> Students { get; set; }
-
-
     }
+
+    public DbSet<Student> Students { get; set; }
+
+
 }
