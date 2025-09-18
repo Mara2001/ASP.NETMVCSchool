@@ -23,6 +23,13 @@ namespace ASP.NETMVCSchool.Services
             return allDTOs;
         }
 
+        // uloží nového studenta
+        public void CreateStudent(StudentDTO studentDTO)
+        {            
+            _dbContext.Students.Add(dtoToModel(studentDTO));
+            _dbContext.SaveChanges();
+        }
+
         // transformační metoda z entity na DTO
         private StudentDTO modelToDTO(Student student)
         {
@@ -32,6 +39,17 @@ namespace ASP.NETMVCSchool.Services
                 FirstName = student.FirstName,
                 LastName = student.LastName,
                 DateOfBirth = student.DateOfBirth
+            };
+        }
+        //transformační metoda z DTO na entity
+        private Student dtoToModel(StudentDTO studentDTO)
+        {
+            return new Student
+            {
+                Id = studentDTO.Id,
+                FirstName = studentDTO.FirstName,
+                LastName = studentDTO.LastName,
+                DateOfBirth = studentDTO.DateOfBirth
             };
         }
     }
